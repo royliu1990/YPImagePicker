@@ -30,6 +30,16 @@ class ViewController: UIViewController {
         view.addSubview(button)
         button.center = view.center
         button.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
+   
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
+    
     }
     
     @objc

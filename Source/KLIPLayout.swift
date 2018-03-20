@@ -38,7 +38,9 @@ struct KLIPLayout {
     
     struct toolbar {
 //        static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
-        static let font:UIFont = UIFont.systemFont(ofSize: 15)
+        static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
+
+//        static let font:UIFont = UIFont.systemFont(ofSize: 15)
     }
     
     struct navibar {

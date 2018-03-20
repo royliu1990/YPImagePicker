@@ -66,11 +66,7 @@
 		99CF6D2B201CB96700487F77 /* YPVideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CF6D2A201CB96700487F77 /* YPVideoHelper.swift */; };
 		99D1DC2B1F9788930047F0E0 /* YPImagePickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1DC2A1F9788930047F0E0 /* YPImagePickerConfiguration.swift */; };
 		F60F3D32206154770003B98A /* KLIPLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60F3D31206154770003B98A /* KLIPLayout.swift */; };
-		F60F3D3820615EB00003B98A /* DIN-Kolo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3320615EAE0003B98A /* DIN-Kolo.ttf */; };
-		F60F3D3920615EB00003B98A /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3420615EAF0003B98A /* Ubuntu-Light.ttf */; };
-		F60F3D3A20615EB00003B98A /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3520615EAF0003B98A /* Ubuntu-Regular.ttf */; };
 		F60F3D3B20615EB00003B98A /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3620615EAF0003B98A /* Ubuntu-Medium.ttf */; };
-		F60F3D3C20615EB00003B98A /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3720615EAF0003B98A /* Ubuntu-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +140,7 @@
 		F60F3D3520615EAF0003B98A /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		F60F3D3620615EAF0003B98A /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		F60F3D3720615EAF0003B98A /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		F60F3D3D206169C40003B98A /* lantinghei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lantinghei.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +247,7 @@
 		99C6D69D1F1FB5C100711DB2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F60F3D3D206169C40003B98A /* lantinghei.ttf */,
 				F60F3D3320615EAE0003B98A /* DIN-Kolo.ttf */,
 				F60F3D3720615EAF0003B98A /* Ubuntu-Bold.ttf */,
 				F60F3D3420615EAF0003B98A /* Ubuntu-Light.ttf */,
@@ -401,12 +399,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60F3D3A20615EB00003B98A /* Ubuntu-Regular.ttf in Resources */,
 				99C6D6B91F1FB5C100711DB2 /* Assets.xcassets in Resources */,
 				F60F3D3B20615EB00003B98A /* Ubuntu-Medium.ttf in Resources */,
-				F60F3D3820615EB00003B98A /* DIN-Kolo.ttf in Resources */,
-				F60F3D3C20615EB00003B98A /* Ubuntu-Bold.ttf in Resources */,
-				F60F3D3920615EB00003B98A /* Ubuntu-Light.ttf in Resources */,
 				99C6D6BD1F1FB5C100711DB2 /* YPLibraryView.xib in Resources */,
 				99C6D6BA1F1FB5C100711DB2 /* Localizable.strings in Resources */,
 			);
