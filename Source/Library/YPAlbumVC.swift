@@ -40,6 +40,16 @@ class YPAlbumVC: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
                                                            action: #selector(close))
+        
+        title = "Albums"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self,
+                                                           action: #selector(close))
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 30)], for: .normal)
+        
+        
         setUpTableView()
         albumsManager.noVideos = noVideos
         fetchAlbumsInBackground()
@@ -67,7 +77,7 @@ class YPAlbumVC: UIViewController {
         v.tableView.dataSource = self
         v.tableView.delegate = self
         v.tableView.rowHeight = UITableViewAutomaticDimension
-        v.tableView.estimatedRowHeight = 80
+        v.tableView.estimatedRowHeight = KLIPLayout.libraryList.rowHeight
         v.tableView.separatorStyle = .none
         v.tableView.register(YPAlbumCell.self, forCellReuseIdentifier: "AlbumCell")
     }
@@ -85,6 +95,7 @@ extension YPAlbumVC: UITableViewDataSource {
             cell.thumbnail.backgroundColor = .gray
             cell.thumbnail.image = album.thumbnail
             cell.title.text = album.title
+            cell.title.font = KLIPLayout.libraryList.nameFont
             cell.numberOfPhotos.text = "\(album.numberOfPhotos)"
             return cell
         }

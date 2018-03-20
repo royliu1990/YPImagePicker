@@ -34,6 +34,9 @@ final class YPLibraryView: UIView {
         )
     
         line.backgroundColor = .white
+        
+        collectionView.backgroundColor = KLIPLayout.common.backgroundColor
+
     }
 }
 

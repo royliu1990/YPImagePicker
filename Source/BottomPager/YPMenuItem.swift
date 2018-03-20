@@ -28,17 +28,17 @@ final class YPMenuItem: UIView {
         
         text.style { l in
             l.textAlignment = .center
-            l.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium)
+            l.font = KLIPLayout.toolbar.font
             l.textColor = self.unselectedColor()
         }
     }
     
     func selectedColor() -> UIColor {
-        return UIColor(r: 38, g: 38, b: 38)
+        return .white
     }
     
     func unselectedColor() -> UIColor {
-        return UIColor(r: 153, g: 153, b: 153)
+        return .white
     }
     
     func select() {
@@ -49,3 +49,4 @@ final class YPMenuItem: UIView {
         text.textColor = unselectedColor()
     }
 }
+

@@ -66,9 +66,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        flashOnImage = imageFromBundle("yp_iconFlash_on")
-        flashOffImage = imageFromBundle("yp_iconFlash_off")
-        flashAutoImage = imageFromBundle("yp_iconFlash_auto")
+        flashOnImage = imageFromBundle("闪光灯-打开")
+        flashOffImage = imageFromBundle("闪光灯-关闭")
+        flashAutoImage = imageFromBundle("闪光灯-自动")
         
         view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
 
@@ -235,8 +235,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         let label = UILabel()
         label.text = aTitle
-        label.textColor = .black
-        
+        label.textColor = KLIPLayout.common.fontColor
+
         let arrow = UIImageView()
         arrow.image = imageFromBundle("yp_arrow")
         
@@ -263,7 +263,14 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
                                                            action: #selector(close))
-        navigationItem.leftBarButtonItem?.tintColor = UIColor(r: 38, g: 38, b: 38)
+        navigationItem.leftBarButtonItem?.tintColor = KLIPLayout.common.fontColor
+        
+        navigationController?.navigationBar.isTranslucent = false
+        
+        
+        
+        navigationController?.navigationBar.barTintColor = KLIPLayout.common.backgroundColor
+        
         switch mode {
         case .library:
             setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")

@@ -19,29 +19,33 @@ class YPAlbumCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //        let stackView = UIStackView()
+        //        stackView.axis = .vertical
+        //        stackView.addArrangedSubview(title)
+        //        stackView.addArrangedSubview(numberOfPhotos)
         
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.addArrangedSubview(title)
-        stackView.addArrangedSubview(numberOfPhotos)
+        //        sv(
+        //            thumbnail,
+        //            stackView
+        //        )
         
         sv(
             thumbnail,
-            stackView
+            title
         )
         
         layout(
-            6,
-            |-10-thumbnail.size(78),
-            6
+            KLIPLayout.libraryList.thumbnilTop,
+            |-KLIPLayout.libraryList.thumbnilLeft-thumbnail.size(KLIPLayout.libraryList.thumbnilSize),
+            15
         )
         
-        alignHorizontally(thumbnail-10-stackView)
+        alignHorizontally(thumbnail-KLIPLayout.libraryList.nameLeft-title)
         
         thumbnail.contentMode = .scaleAspectFill
         thumbnail.clipsToBounds = true
         
-        title.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
-        numberOfPhotos.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+        title.font = KLIPLayout.libraryList.nameFont
+        //        numberOfPhotos.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
     }
 }

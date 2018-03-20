@@ -64,21 +64,21 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
             0
         )
         previewViewContainer.heightEqualsWidth()
-
-        overlayView?.followEdges(previewViewContainer)
-
+        
         |-(15+sideMargin)-flashButton.size(42)
         flashButton.Bottom == previewViewContainer.Bottom - 15
-
+        
         flipButton.size(42)-(15+sideMargin)-|
         flipButton.Bottom == previewViewContainer.Bottom - 15
         
-        timeElapsedLabel-(15+sideMargin)-|
-        timeElapsedLabel.Top == previewViewContainer.Top + 15
+        
         
         shotButton.centerVertically()
-        shotButton.size(84).centerHorizontally()
-
+        shotButton.size(80).centerHorizontally()
+        
+        timeElapsedLabel.CenterX == previewViewContainer.CenterX
+        timeElapsedLabel.Top == shotButton.Top - 35
+        
         // Style
         backgroundColor = .clear
         previewViewContainer.backgroundColor = .black
@@ -92,10 +92,12 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
             p.trackTintColor = .clear
             p.tintColor = .red
         }
-        let flipImage = imageFromBundle("yp_iconLoop")
-        let shotImage = imageFromBundle("yp_iconCapture")
+        let flipImage = imageFromBundle("翻转")
+        let shotImage = imageFromBundle("拍照-小圈")
         flashButton.setImage(flashOffImage, for: .normal)
         flipButton.setImage(flipImage, for: .normal)
         shotButton.setImage(shotImage, for: .normal)
+        shotButton.backgroundColor = .white
+        shotButton.layer.cornerRadius = 40
     }
 }
