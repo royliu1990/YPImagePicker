@@ -70,7 +70,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         flashOffImage = imageFromBundle("闪光灯-关闭")
         flashAutoImage = imageFromBundle("闪光灯-自动")
         
-        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        view.backgroundColor = .black
 
         delegate = self
         

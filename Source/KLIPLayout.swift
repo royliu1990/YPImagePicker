@@ -27,8 +27,8 @@ struct KLIPLayout {
         static let thumbnilTop:CGFloat = 15
         static let thumbnilSize:CGFloat = 60
         
-//        static let nameFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
-        static let nameFont:UIFont = UIFont.systemFont(ofSize: 15)
+        static let nameFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
+//        static let nameFont:UIFont = UIFont.systemFont(ofSize: 15)
 
         static let nameColor:UIColor = UIColor.black
         static let nameLeft:CGFloat = 15

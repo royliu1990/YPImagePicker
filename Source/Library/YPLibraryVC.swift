@@ -58,6 +58,7 @@ public class YPLibraryVC: UIViewController, PermissionCheckable {
     public override func loadView() {
         v = YPLibraryView.xibView()
         view = v
+        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
