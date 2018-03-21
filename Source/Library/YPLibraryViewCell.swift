@@ -40,7 +40,7 @@ class YPLibraryViewCell: UICollectionViewCell {
         durationLabel.isHidden = true
         selectionOverlay.backgroundColor = .black
         selectionOverlay.alpha = 0
-        backgroundColor = .black
+        backgroundColor = .white
     }
 
     override var isSelected: Bool {

@@ -78,6 +78,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if configuration.screens.contains(.library) {
             libraryVC = YPLibraryVC(configuration: configuration)
             libraryVC?.delegate = self
+            
         }
         
         // Camera

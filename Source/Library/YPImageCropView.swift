@@ -119,7 +119,7 @@ final class YPImageCropView: UIScrollView, UIScrollViewDelegate {
         alwaysBounceHorizontal = true
         alwaysBounceVertical = true
         isScrollEnabled = true
-        backgroundColor = .black
+        backgroundColor = .white
     }
     
     override func layoutSubviews() {

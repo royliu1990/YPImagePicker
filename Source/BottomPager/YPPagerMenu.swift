@@ -16,7 +16,7 @@ final class YPPagerMenu: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        backgroundColor = KLIPLayout.common.backgroundColor
+        backgroundColor = .black
     }
     
     var separators = [UIView]()
