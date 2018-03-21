@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-public class YPImagePicker: UINavigationController {
+open class YPImagePicker: UINavigationController {
     
     /// Set a global configuration that will be applied whenever you call YPImagePicker().
     public static func setDefaultConfiguration(_ config: YPImagePickerConfiguration) {
@@ -93,7 +93,7 @@ public class YPImagePicker: UINavigationController {
         }
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         viewControllers = [picker]
         setupActivityIndicator()
