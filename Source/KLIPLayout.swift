@@ -14,7 +14,7 @@ struct KLIPLayout {
         static let fontColor:UIColor = .white
         static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
         static let titleFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 17)!
-        static let cancelText:String = "Cancel"
+        static let cancelText:String = ypLocalized("Cancel")
     }
     
     struct libraryList {

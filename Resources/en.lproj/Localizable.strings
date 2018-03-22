@@ -17,6 +17,6 @@
 "YPImagePickerPermissionDeniedPopupMessage" = "Please allow access";
 "YPImagePickerPermissionDeniedPopupCancel" = "Cancel";
 "YPImagePickerPermissionDeniedPopupGrantPermission" = "Grant Permission";
-
+"Cancel" = "Cancel";
 
 

@@ -31,14 +31,6 @@ class ViewController: UIViewController {
         button.center = view.center
         button.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
    
-        for family: String in UIFont.familyNames
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
     
     }
     
@@ -132,6 +124,13 @@ class ViewController: UIViewController {
             self.imageView.image = videoThumbnailImage
             picker.dismiss(animated: true, completion: nil)
         }
+        
+        
+        
+        let lans =  UserDefaults.standard.object(forKey: "AppleLanguages") as! Array<String>
+        
+        print(lans[0])
+        
         present(picker, animated: true, completion: nil)
     }
 }
