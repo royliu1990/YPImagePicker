@@ -27,6 +27,7 @@ class YPFiltersVC: UIViewController {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
         title = configuration.wordings.filter
+        navigationController?.navigationBar.barTintColor = .white
         self.originalImage = image
         
         filterPreviews = [
@@ -84,14 +85,67 @@ class YPFiltersVC: UIViewController {
         v.collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                                   animated: false,
                                                   scrollPosition: UICollectionViewScrollPosition.bottom)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                            target: self,
-                                                            action: #selector(done))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete", style: .plain, target: self, action: #selector(done))
+
+        
+        v.collectionView.layer.shadowColor = UIColor.black.cgColor
+        
+        v.collectionView.layer.shadowRadius = 7
+        
+        v.collectionView.layer.shadowOffset = CGSize(width: 0, height: 7)
+       
+        v.collectionView.layer.shadowOpacity = 0.2
+        
+        
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageFromBundle("whiteBack"), style: .plain, target: self, action: #selector(back))
+        
+        navigationItem.rightBarButtonItem?.tintColor = KLIPLayout.common.mainRed
+        navigationItem.leftBarButtonItem?.tintColor = .white
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:KLIPLayout.common.font], for: .normal)
+        
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:KLIPLayout.common.font], for: .normal)
     }
     
     @objc
     func done() {
         didSelectImage?(v.imageView.image!, isImageFiltered)
+    }
+    
+    @objc
+    func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        let titleView = UIView()
+        titleView.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
+        
+        let label = UILabel()
+        label.text = self.title!.uppercased()
+        label.textColor = .white
+        label.font = KLIPLayout.navibar.titleFont
+        label.textAlignment = .center
+        titleView.addSubview(label)
+        
+//        titleView.sv(
+//            label,
+//            arrow,
+//            button
+//        )
+//
+//        |-(>=8)-label.centerInContainer()-(>=8)-|
+        
+        label.frame = titleView.bounds
+        
+        navigationItem.titleView = titleView
+       
     }
 }
 
@@ -107,6 +161,8 @@ extension YPFiltersVC: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell",
                                                          for: indexPath) as? YPFilterCollectionViewCell {
             cell.name.text = filterPreview.name
+            
+            cell.name.font = KLIPLayout.filter.filterNameFont
             if let img = filterPreview.image {
                 cell.imageView.image = img
             } else {

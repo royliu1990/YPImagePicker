@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         button.center = view.center
         button.addTarget(self, action: #selector(showPicker), for: .touchUpInside)
    
-    
+        PrintFonts()
     }
     
     @objc
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
 //        config.overlayView = overlayView
         
         // Customize wordings
-        config.wordings.libraryTitle = "Kolo"
+//        config.wordings.libraryTitle = "Kolo"
         
         /// Defines if the status bar should be hidden when showing the picker. Default is true
         config.hidesStatusBar = false
@@ -132,5 +132,21 @@ class ViewController: UIViewController {
         print(lans[0])
         
         present(picker, animated: true, completion: nil)
+    }
+    
+    
+    func PrintFonts() {
+        
+        let familyNames = UIFont.familyNames
+        var index:Int = 0
+        for familyName in familyNames
+        {
+            let fontNames = UIFont.fontNames(forFamilyName: familyName as String)
+            for fontName in fontNames
+            {
+                index += 1
+                print("序号\(index):\(fontName)")
+            }
+        }
     }
 }

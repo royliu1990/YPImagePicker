@@ -28,6 +28,7 @@
 	<string>Access your photo library</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DIN-Kolo.ttf</string>
 		<string>Ubuntu-Medium.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

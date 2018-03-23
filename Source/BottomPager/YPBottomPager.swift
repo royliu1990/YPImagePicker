@@ -67,7 +67,7 @@ public class YPBottomPager: UIViewController, UIScrollViewDelegate {
         // Build headers
         for (index, c) in controllers.enumerated() {
             let menuItem = YPMenuItem()
-            menuItem.text.text = c.title?.capitalized
+            menuItem.text.text = c.title?.capitalized.uppercased()
             menuItem.button.tag = index
             menuItem.button.addTarget(self,
                                       action: #selector(tabTapped(_:)),

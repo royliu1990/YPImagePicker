@@ -36,8 +36,17 @@ class YPLibraryViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         durationLabel.textColor = .white
-        durationLabel.font = .systemFont(ofSize: 12)
+        durationLabel.font = KLIPLayout.filter.filterNameFont
         durationLabel.isHidden = true
+        
+        durationLabel.layer.shadowColor = UIColor.black.cgColor
+        
+        durationLabel.layer.shadowRadius = 2
+        
+        durationLabel.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        durationLabel.layer.shadowOpacity = 0.3
+        
         selectionOverlay.backgroundColor = .black
         selectionOverlay.alpha = 0
         backgroundColor = .white

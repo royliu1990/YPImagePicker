@@ -67,6 +67,8 @@
 		99D1DC2B1F9788930047F0E0 /* YPImagePickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1DC2A1F9788930047F0E0 /* YPImagePickerConfiguration.swift */; };
 		F60F3D32206154770003B98A /* KLIPLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60F3D31206154770003B98A /* KLIPLayout.swift */; };
 		F60F3D3B20615EB00003B98A /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3620615EAF0003B98A /* Ubuntu-Medium.ttf */; };
+		F6BCBFC22064D197007627DD /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCBFC12064D197007627DD /* UIColor+Ext.swift */; };
+		F6BCBFC52064EF5E007627DD /* DIN-Kolo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60F3D3320615EAE0003B98A /* DIN-Kolo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +140,7 @@
 		F60F3D3720615EAF0003B98A /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		F60F3D3D206169C40003B98A /* lantinghei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lantinghei.ttf; sourceTree = "<group>"; };
 		F60F3D832062516C0003B98A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F6BCBFC12064D197007627DD /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,7 @@
 				99A3C90E20319212008D7E23 /* Crop */,
 				99019E542018CECC007325C2 /* Helpers */,
 				F60F3D31206154770003B98A /* KLIPLayout.swift */,
+				F6BCBFC12064D197007627DD /* UIColor+Ext.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -397,6 +401,7 @@
 				F60F3D3B20615EB00003B98A /* Ubuntu-Medium.ttf in Resources */,
 				99C6D6BD1F1FB5C100711DB2 /* YPLibraryView.xib in Resources */,
 				99C6D6BA1F1FB5C100711DB2 /* Localizable.strings in Resources */,
+				F6BCBFC52064EF5E007627DD /* DIN-Kolo.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +450,7 @@
 				99019E4C2018CCD6007325C2 /* YPBottomPagerView.swift in Sources */,
 				99C6D6BB1F1FB5C100711DB2 /* YPLibraryVC.swift in Sources */,
 				99C6D6CB1F1FB5C100711DB2 /* YPHelpers.swift in Sources */,
+				F6BCBFC22064D197007627DD /* UIColor+Ext.swift in Sources */,
 				99019E532018CE19007325C2 /* YPPickerScreen.swift in Sources */,
 				99CF6D1F201B6B9E00487F77 /* CGRect+Difference.swift in Sources */,
 				99CF6D1D201B6ABA00487F77 /* IndexSet+IndexPath.swift in Sources */,

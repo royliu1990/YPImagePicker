@@ -122,9 +122,64 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     @objc
     func shotButtonTapped() {
+        v.shotButton.isSelected = false
+        v.shotButton.isHighlighted = false
         doAfterPermissionCheck { [weak self] in
             self?.toggleRecording()
         }
+    }
+    
+    let mask = CALayer()
+    var timer:Timer!
+    private func fireButtonAnimation()
+    {
+        
+        
+        
+        
+        if mask.superlayer == nil
+        {
+            mask.backgroundColor = UIColor.white.cgColor
+            
+            mask.opacity = 0
+            self.v.shotButton.layer.addSublayer(mask)
+            mask.frame = self.v.shotButton.bounds
+            mask.masksToBounds = true
+            
+            self.v.shotButton.layer.masksToBounds = true
+        }
+        if #available(iOS 10.0, *) {
+            
+             timer = Timer(timeInterval: 0.5, repeats: true) { (timer) in
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.mask.opacity = 0.3 - self.mask.opacity
+
+                })
+                
+//                DispatchQueue.main.async {
+////                    self.mask.opacity = 1
+//
+//                    print("执行了")
+//                }
+
+            }
+            
+//            timer.fire()
+            
+            RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
+            
+            RunLoop.current.run()
+            
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    
+    private func stopButtonAnimation()
+    {
+        timer.invalidate()
     }
     
     private func toggleRecording() {
@@ -133,6 +188,7 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     private func startRecording() {
         videoHelper.startRecording()
+        fireButtonAnimation()
         updateState {
             $0.isRecording = true
         }
@@ -140,6 +196,7 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     private func stopRecording() {
         videoHelper.stopRecording()
+        stopButtonAnimation()
         updateState {
             $0.isRecording = false
         }

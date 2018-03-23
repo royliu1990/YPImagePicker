@@ -104,7 +104,7 @@ class YPImageCropViewContainer: UIView, YPImageCropViewDelegate, UIGestureRecogn
         
         if !onlySquareImages {
             // Crop Button
-            squareCropButton.setImage(imageFromBundle("yp_iconCrop"), for: .normal)
+            squareCropButton.setImage(imageFromBundle("缩放"), for: .normal)
             sv(squareCropButton)
             squareCropButton.size(42)
             |-15-squareCropButton

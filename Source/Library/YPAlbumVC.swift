@@ -28,7 +28,7 @@ class YPAlbumVC: UIViewController {
     required init(configuration: YPImagePickerConfiguration) {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
-        title = "Albums"
+        title = configuration.wordings.libraryTitle
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,18 +41,26 @@ class YPAlbumVC: UIViewController {
                                                            target: self,
                                                            action: #selector(close))
         
-        title = "Albums"
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
                                                            action: #selector(close))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.tintColor = KLIPLayout.common.backgroundColor
         
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 30)], for: .normal)
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:KLIPLayout.common.font], for: .normal)
         
         
         setUpTableView()
         albumsManager.noVideos = noVideos
         fetchAlbumsInBackground()
+        
+        
+        
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
     }
     
     func fetchAlbumsInBackground() {
@@ -89,14 +97,17 @@ extension YPAlbumVC: UITableViewDataSource {
         return albums.count
     }
     
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let album = albums[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as? YPAlbumCell {
             cell.thumbnail.backgroundColor = .gray
             cell.thumbnail.image = album.thumbnail
-            cell.title.text = album.title
+            cell.title.text = album.title + " (\(album.numberOfPhotos))"
             cell.title.font = KLIPLayout.libraryList.nameFont
-            cell.numberOfPhotos.text = "\(album.numberOfPhotos)"
+//            cell.numberOfPhotos.text = "\(album.numberOfPhotos)"
             return cell
         }
         return UITableViewCell()

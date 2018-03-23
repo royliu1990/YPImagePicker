@@ -32,7 +32,10 @@ open class YPImagePicker: UINavigationController {
         self.configuration = configuration
         picker = YPPickerVC(configuration: configuration)
         super.init(nibName: nil, bundle: nil)
+        
     }
+    
+    
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

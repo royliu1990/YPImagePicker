@@ -86,7 +86,7 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
             l.textColor = .white
             l.text = "00:00"
             l.isHidden = true
-            l.font = .monospacedDigitSystemFont(ofSize: 13, weight: UIFont.Weight.medium)
+            l.font = KLIPLayout.video.eplaseTime
         }
         progressBar.style { p in
             p.trackTintColor = .clear

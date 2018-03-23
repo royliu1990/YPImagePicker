@@ -22,12 +22,12 @@ class YPFilterCollectionViewCell: UICollectionViewCell {
     }
     override var isSelected: Bool { didSet {
         name.textColor = isSelected
-            ? UIColor(r: 38, g: 38, b: 38)
-            : UIColor(r: 154, g: 154, b: 154)
+            ? UIColor(r: 51, g: 51, b: 51)
+            : UIColor(r: 170, g: 170, b: 170)
         
-        name.font = .systemFont(ofSize: 11, weight: isSelected
-            ? UIFont.Weight.medium
-            : UIFont.Weight.regular)
+//        name.font = .systemFont(ofSize: 11, weight: isSelected
+//            ? UIFont.Weight.medium
+//            : UIFont.Weight.regular)
         }
     }
     

@@ -7,19 +7,22 @@
 //
 
 import UIKit
+
 struct KLIPLayout {
     
     struct common {
-        static let backgroundColor:UIColor = .black
+        static let backgroundColor:UIColor = UIColor.withHex(hexString:"181818", alpha:1)
         static let fontColor:UIColor = .white
         static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
         static let titleFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 17)!
         static let cancelText:String = ypLocalized("Cancel")
+        static let mainRed:UIColor = UIColor.withHex(hexInt: 0xeb2135, alpha: 1)
+
     }
     
     struct libraryList {
         
-        static let fontColor:UIColor = UIColor.black
+        static let fontColor:UIColor = UIColor.withHex(hexString:"181818", alpha:1)
         
         static let rowHeight:CGFloat = 90
         
@@ -28,9 +31,7 @@ struct KLIPLayout {
         static let thumbnilSize:CGFloat = 60
         
         static let nameFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
-//        static let nameFont:UIFont = UIFont.systemFont(ofSize: 15)
 
-        static let nameColor:UIColor = UIColor.black
         static let nameLeft:CGFloat = 15
         
         static let placeHolder:UIImage = UIImage()
@@ -38,15 +39,19 @@ struct KLIPLayout {
     
     struct toolbar {
 //        static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
-        static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
+        static let font:UIFont = UIFont(name: "Ubuntu-Medium", size: 14)!
 
 //        static let font:UIFont = UIFont.systemFont(ofSize: 15)
     }
     
+    
+    
     struct navibar {
-        static let nextBarColor:UIColor = .red
-        static let fontColor:UIColor = .red
+        static let nextBarColor:UIColor = UIColor.withHex(hexInt: 0xeb2135, alpha: 1)
+        static let fontColor:UIColor = UIColor.withHex(hexInt: 0xeb2135, alpha: 1)
         static let arrowImg:UIImage = UIImage()
+        static let titleFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 17)!
+        static let itemFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 15)!
     }
     
     struct photo {
@@ -60,6 +65,13 @@ struct KLIPLayout {
     
     struct video {
         static let buttonImage:UIImage = imageFromBundle("拍摄视频-小圈")
+        static let eplaseTime:UIFont = UIFont(name: "DINPro-Bold", size: 14)!
+
+    }
+    
+    struct filter {
+        static let filterNameFont:UIFont = UIFont(name: "Ubuntu-Medium", size: 12)!
+        
     }
 }
 

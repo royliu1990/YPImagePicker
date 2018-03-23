@@ -63,6 +63,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         return UIImage(named: named, in: bundle, compatibleWith: nil) ?? UIImage()
     }
     
+    
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,7 +72,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         flashOffImage = imageFromBundle("闪光灯-关闭")
         flashAutoImage = imageFromBundle("闪光灯-自动")
         
-        view.backgroundColor = .black
+        view.backgroundColor = KLIPLayout.common.backgroundColor
 
         delegate = self
         
@@ -140,7 +142,13 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraVC?.v.shotButton.isEnabled = true
+        
+        UIApplication.shared.isStatusBarHidden = true
+        
+        self.updateUI()
     }
+    
+    
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -148,7 +156,10 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         initialStatusBarHidden = true
         UIView.animate(withDuration: 0.3) {
             self.setNeedsStatusBarAppearanceUpdate()
+           
         }
+        
+//         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: (self.navigationController?.navigationBar.bounds.width)!, height: 200)
     }
     
     internal func pagerScrollViewDidScroll(_ scrollView: UIScrollView) { }
@@ -222,28 +233,36 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
 
         vc.didSelectAlbum = { [weak self] album in
             self?.libraryVC?.setAlbum(album)
-            self?.libraryVC?.title = album.title
+            self?.libraryVC?.title = album.title.uppercased()
             self?.libraryVC?.refreshMediaRequest()
-            self?.setTitleViewWithTitle(aTitle: album.title)
+            self?.setTitleViewWithTitle(aTitle: album.title,0)
             self?.dismiss(animated: true, completion: nil)
         }
         present(navVC, animated: true, completion: nil)
     }
     
-    func setTitleViewWithTitle(aTitle: String) {
+    func setTitleViewWithTitle(aTitle: String,_ index:Int) {
         let titleView = UIView()
         titleView.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
         
         let label = UILabel()
-        label.text = aTitle
+        label.text = aTitle.uppercased()
         label.textColor = KLIPLayout.common.fontColor
-
+        label.font = KLIPLayout.navibar.titleFont
         let arrow = UIImageView()
         arrow.image = imageFromBundle("yp_arrow")
+        
+       
         
         let button = UIButton()
         button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
         button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
+        
+        if index != 0
+        {
+            arrow.isHidden = true
+            button.isUserInteractionEnabled = false
+        }
         
         titleView.sv(
             label,
@@ -268,25 +287,28 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         navigationController?.navigationBar.isTranslucent = false
         
-        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:KLIPLayout.common.font], for: .normal)
         
         navigationController?.navigationBar.barTintColor = KLIPLayout.common.backgroundColor
         
         switch mode {
         case .library:
-            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
+            setTitleViewWithTitle(aTitle: libraryVC?.title ?? "",0)
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: configuration.wordings.next,
                                                                 style: .done,
                                                                 target: self,
                                                                 action: #selector(done))
             navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItem?.tintColor = KLIPLayout.navibar.nextBarColor
         case .camera:
-            navigationItem.titleView = nil
-            title = cameraVC?.title
+            setTitleViewWithTitle(aTitle: cameraVC?.title ?? "",1)
+//            title = cameraVC?.title
             navigationItem.rightBarButtonItem = nil
         case .video:
-            navigationItem.titleView = nil
-            title = videoVC?.title
+//            navigationItem.titleView = nil
+            setTitleViewWithTitle(aTitle: videoVC?.title ?? "",2)
+
+//            title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
         }
     }
