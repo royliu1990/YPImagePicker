@@ -99,7 +99,7 @@ class ViewController: UIViewController {
 //        config.overlayView = overlayView
         
         // Customize wordings
-        config.wordings.libraryTitle = "Gallery"
+        config.wordings.libraryTitle = "Kolo"
         
         /// Defines if the status bar should be hidden when showing the picker. Default is true
         config.hidesStatusBar = false
