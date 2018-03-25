@@ -85,7 +85,7 @@ class YPFiltersVC: UIViewController {
         v.collectionView.selectItem(at: IndexPath(row: 0, section: 0),
                                                   animated: false,
                                                   scrollPosition: UICollectionViewScrollPosition.bottom)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete", style: .plain, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: ypLocalized("Complete"), style: .plain, target: self, action: #selector(done))
 
         
         v.collectionView.layer.shadowColor = UIColor.black.cgColor
@@ -95,7 +95,6 @@ class YPFiltersVC: UIViewController {
         v.collectionView.layer.shadowOffset = CGSize(width: 0, height: 7)
        
         v.collectionView.layer.shadowOpacity = 0.2
-        
         
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageFromBundle("whiteBack"), style: .plain, target: self, action: #selector(back))

@@ -60,8 +60,9 @@ open class YPImagePicker: UINavigationController {
     private let label: UILabel = {
         let frame = CGRect(x: 0, y: 0, width: 200, height: 20)
         let label = UILabel(frame: frame)
-        label.text = NSLocalizedString("Processing...", comment: "Processing...")
+        label.text = ypLocalized("Processing...")
         label.textColor = .white
+        label.textAlignment = .center
         return label
     }()
     

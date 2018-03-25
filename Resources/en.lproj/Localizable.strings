@@ -18,5 +18,5 @@
 "YPImagePickerPermissionDeniedPopupCancel" = "Cancel";
 "YPImagePickerPermissionDeniedPopupGrantPermission" = "Grant Permission";
 "Cancel" = "Cancel";
-
-
+"Processing..."="Processing...";
+"Complete" = "Complete";

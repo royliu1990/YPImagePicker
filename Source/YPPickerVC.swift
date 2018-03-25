@@ -14,6 +14,8 @@ var flashOnImage: UIImage?
 var flashAutoImage: UIImage?
 var videoStartImage: UIImage?
 var videoStopImage: UIImage?
+var kForceLeaveVideo = false
+var kForceLeavePhoto = false
 
 extension UIColor {
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) {
@@ -80,14 +82,20 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if configuration.screens.contains(.library) {
             libraryVC = YPLibraryVC(configuration: configuration)
             libraryVC?.delegate = self
-            
         }
         
         // Camera
         if configuration.screens.contains(.photo) {
             cameraVC = YPCameraVC(configuration: configuration)
             cameraVC?.didCapturePhoto = { [unowned self] img in
-                self.didSelectImage?(img, true)
+                if !kForceLeavePhoto
+                {
+                    self.didSelectImage?(img, true)
+                }
+                else
+                {
+                    kForceLeavePhoto = false
+                }
             }
         }
         
@@ -95,7 +103,14 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if configuration.screens.contains(.video) {
             videoVC = YPVideoVC(configuration: configuration)
             videoVC?.didCaptureVideo = { [unowned self] videoURL in
-                self.didSelectVideo?(videoURL)
+                if !kForceLeaveVideo
+                {
+                    self.didSelectVideo?(videoURL)
+                }
+                else
+                {
+                    kForceLeaveVideo = false
+                }
             }
         }
     
@@ -201,8 +216,12 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         case .library:
             libraryVC?.pausePlayer()
         case .camera:
+            kForceLeavePhoto = true
             cameraVC?.stopCamera()
         case .video:
+            kForceLeaveVideo = true
+            videoVC?.timer?.invalidate()
+            videoVC?.mask.opacity = 0
             videoVC?.stopCamera()
         }
     }

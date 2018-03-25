@@ -12,7 +12,7 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     public var didCaptureVideo: ((URL) -> Void)?
     
-    private let videoHelper = YPVideoHelper()
+    let videoHelper = YPVideoHelper()
     private let v = YPCameraView(overlayView: nil)
     private var isPreviewSetup = false
     let configuration: YPImagePickerConfiguration!
@@ -130,7 +130,7 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     }
     
     let mask = CALayer()
-    var timer:Timer!
+    var timer:Timer? = nil
     private func fireButtonAnimation()
     {
         
@@ -157,19 +157,13 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
 
                 })
                 
-//                DispatchQueue.main.async {
-////                    self.mask.opacity = 1
-//
-//                    print("执行了")
-//                }
+
 
             }
+
             
-//            timer.fire()
-            
-            RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
-            
-            RunLoop.current.run()
+            RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+
             
         } else {
             // Fallback on earlier versions
@@ -179,7 +173,7 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     private func stopButtonAnimation()
     {
-        timer.invalidate()
+        timer?.invalidate()
     }
     
     private func toggleRecording() {
