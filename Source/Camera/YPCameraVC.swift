@@ -48,7 +48,7 @@ public class YPCameraVC: UIViewController, UIGestureRecognizerDelegate, Permissi
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        photoCapture.tryToStartCamera()
+//        photoCapture.tryToStartCamera()
     }
     
     public override func viewDidAppear(_ animated: Bool) {

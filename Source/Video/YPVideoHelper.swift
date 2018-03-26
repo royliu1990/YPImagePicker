@@ -16,7 +16,7 @@ class YPVideoHelper: NSObject {
     public var didCaptureVideo: ((URL) -> Void)?
     public var videoRecordingProgress: ((Float, TimeInterval) -> Void)?
     
-    private let session = AVCaptureSession()
+    let session = AVCaptureSession()
     private var timer = Timer()
     private var dateVideoStarted = Date()
     private let sessionQueue = DispatchQueue(label: "YPVideoVCSerialQueue")

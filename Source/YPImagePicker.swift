@@ -63,6 +63,8 @@ open class YPImagePicker: UINavigationController {
         label.text = ypLocalized("Processing...")
         label.textColor = .white
         label.textAlignment = .center
+//        label.layer.borderColor = UIColor.red.cgColor
+//        label.layer.borderWidth = 2.0
         return label
     }()
     
@@ -70,12 +72,13 @@ open class YPImagePicker: UINavigationController {
         self.view.addSubview(loadingContainerView)
         loadingContainerView.alpha = 0
         loadingContainerView.frame = self.view.bounds
-        
+//        loadingContainerView.layer.borderColor = UIColor.white.cgColor
+//        loadingContainerView.layer.borderWidth = 2.0
         loadingContainerView.addSubview(label)
         let labelWidth: CGFloat = 200.0
         let labelHeight: CGFloat = 20.0
         let offset: CGFloat = 40.0
-        let frame = CGRect(x: (loadingContainerView.frame.width/2) - offset,
+        let frame = CGRect(x: (loadingContainerView.frame.width/2 - labelWidth/2),
                            y: (loadingContainerView.frame.height/2) + offset,
                            width: labelWidth,
                            height: labelHeight)

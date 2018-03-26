@@ -55,6 +55,9 @@ public class YPVideoVC: UIViewController, PermissionCheckable {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+
+        
         if !isPreviewSetup {
             setupPreview()
             isPreviewSetup = true

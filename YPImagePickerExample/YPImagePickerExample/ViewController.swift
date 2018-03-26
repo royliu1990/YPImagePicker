@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         
         /// Defines if the status bar should be hidden when showing the picker. Default is true
         config.hidesStatusBar = false
-        
+        config.startOnScreen = .library
         // Set it the default conf for all Pickers
         //      YPImagePicker.setDefaultConfiguration(config)
         // And then use the default configuration like so:
@@ -117,12 +117,20 @@ class ViewController: UIViewController {
             // image picked
             print(img.size)
             self.imageView.image = img
-            picker.dismiss(animated: true, completion: nil)
+            //            picker.dismiss(animated: true, completion: nil)
+            let vc = ViewController1()
+            vc.img.image = img
+            picker.pushViewController(vc, animated: true)
+            
         }
         picker.didSelectVideo = { [unowned picker] videoData, videoThumbnailImage, url in
             // video picked
             self.imageView.image = videoThumbnailImage
-            picker.dismiss(animated: true, completion: nil)
+//            picker.dismiss(animated: true, completion: nil)
+            let vc = ViewController1()
+            vc.img.image = videoThumbnailImage
+            picker.pushViewController(vc, animated: true)
+            
         }
         
         

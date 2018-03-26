@@ -150,20 +150,38 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         if let index = configuration.screens.index(of: configuration.startOnScreen) {
             startOnPage(index)
         }
-        
         updateMode(with: currentController)
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cameraVC?.v.shotButton.isEnabled = true
         
-        UIApplication.shared.isStatusBarHidden = true
-        
+if loadSentinel
+{
+        stopCurrentCameraNoForceLeaveSet()
+        if currentPage == 1
+        {
+            cameraVC?.photoCapture.startCamera()
+            cameraVC?.v.shotButton.isEnabled = true
+
+        }
+        else if currentPage == 2
+        {
+            videoVC?.videoHelper.startCamera()
+        }
+        }
+        else
+{
+    cameraVC?.v.shotButton.isEnabled = true
+    loadSentinel = true
+    UIApplication.shared.isStatusBarHidden = true
+
+    
+        }
         self.updateUI()
     }
     
-    
+    var loadSentinel = false
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -220,6 +238,19 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             cameraVC?.stopCamera()
         case .video:
             kForceLeaveVideo = true
+            videoVC?.timer?.invalidate()
+            videoVC?.mask.opacity = 0
+            videoVC?.stopCamera()
+        }
+    }
+    
+    func stopCurrentCameraNoForceLeaveSet() {
+        switch mode {
+        case .library:
+            libraryVC?.pausePlayer()
+        case .camera:
+            cameraVC?.stopCamera()
+        case .video:
             videoVC?.timer?.invalidate()
             videoVC?.mask.opacity = 0
             videoVC?.stopCamera()
@@ -306,6 +337,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         navigationController?.navigationBar.isTranslucent = false
         
+        navigationItem.leftBarButtonItem?.title = ypLocalized("Cancel")
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font:KLIPLayout.common.font], for: .normal)
         
         navigationController?.navigationBar.barTintColor = KLIPLayout.common.backgroundColor
